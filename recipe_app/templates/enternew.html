@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>enter recipes</title>
+</head>
+<body>
+    <form action="/enternew" method="POST">
+        {% csrf_token %}
+        Recipe Name: <input type="text" name="recipeName"><br>
+        Protein: <input type="text" name="protein"><br>
+        Carb: <input type="text" name="carb"><br>
+        Veggie: <input type="text" name="veggie"><br>
+        Direction: <input type="text" name="direction"><br>
+        <input type="submit" value="Add Recipe"><br>
+    </form>
+    {% for recipe in new_recipe %}
+    <div>
+        <p>{{recipe.recipe_name}}</p>
+        <p>{{recipe.protein}}</p>
+        <p>{{recipe.carb}}</p>
+        <p>{{recipe.veggie}}</p>
+        <p>{{recipe.direction}}</p>
+    </div>
+    {% endfor %}
+</body>
+</html>
